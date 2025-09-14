@@ -5,7 +5,8 @@ class DeadlockExample {
     private final Object lock2 = new Object();
 
     public void method1() {
-        synchronized (lock1) {
+        //no
+        synchronized (lock2) {
             System.out.println("Thread 1: Holding lock1...");
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             synchronized (lock2) {
